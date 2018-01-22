@@ -13,10 +13,20 @@ const store = (function() {
     return items.find(item => item.id === id);
   };
 
+  const addItem = function(name) {
+    try {
+      Item.validateName(name);
+      this.items.push(Item.create(name));
+    } catch (e){
+      console.log(`Cannot add item: ' ${e.message}`);
+    }
+  };
+
   return {
     items,
     hideCheckedItems,
     searchTerm,
-    findById
+    findById,
+    addItem
   };
 }() );
