@@ -28,7 +28,7 @@ const store = (function() {
   // test with and without 'this'
   const findAndToggleChecked = function(id) {
     let toggled = this.findById(id).checked;
-    toggled = !toggled;
+    this.findById(id).checked = !toggled;
   };
 
   const findAndUpdateName = function(id, newName) {
