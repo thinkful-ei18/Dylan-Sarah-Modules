@@ -1,4 +1,6 @@
 'use strict';
+/* global Item, cuid */
+
 const store = (function() {
   const   items = [
     { id: cuid(), name: 'apples', checked: false },
@@ -22,11 +24,18 @@ const store = (function() {
     }
   };
 
+  // maybe the return is wrong
+  // test with and without 'this'
+  const findAndToggleChecked = function(id) {
+    return this.findById(id).checked = !this.findById(id).checked;
+  };
+
   return {
     items,
     hideCheckedItems,
     searchTerm,
     findById,
-    addItem
+    addItem,
+    findAndToggleChecked
   };
 }() );
