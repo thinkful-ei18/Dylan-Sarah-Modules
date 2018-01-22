@@ -40,7 +40,9 @@ const store = (function() {
   };
 
   const findAndDelete = function(id) {
-    const item = this.items.findIndex(this.findById(id));
+    const item = this.items.findIndex(function(element) {
+      return element.id === id;
+    });
     this.items.splice(item, 1);
   };
 
