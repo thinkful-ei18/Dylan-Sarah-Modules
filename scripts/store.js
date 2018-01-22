@@ -20,14 +20,23 @@ const store = (function() {
       Item.validateName(name);
       this.items.push(Item.create(name));
     } catch (e){
-      console.log(`Cannot add item: ' ${e.message}`);
+      console.log(`Cannot add item: ${e.message}`);
     }
   };
 
   // maybe the return is wrong
   // test with and without 'this'
   const findAndToggleChecked = function(id) {
-    return this.findById(id).checked = !this.findById(id).checked;
+    this.findById(id).checked = !this.findById(id).checked;
+  };
+
+  const findAndUpdateName = function(id, newName) {
+    try {
+      Item.validateName(newName);
+      this.findById(id).name = newName;
+    } catch (e){
+      console.log(`Cannot update name: ${e.message}`);
+    }
   };
 
   return {
