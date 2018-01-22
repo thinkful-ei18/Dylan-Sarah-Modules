@@ -27,7 +27,8 @@ const store = (function() {
   // maybe the return is wrong
   // test with and without 'this'
   const findAndToggleChecked = function(id) {
-    this.findById(id).checked = !this.findById(id).checked;
+    let toggled = this.findById(id).checked;
+    toggled = !toggled;
   };
 
   const findAndUpdateName = function(id, newName) {
@@ -40,10 +41,13 @@ const store = (function() {
   };
 
   const findAndDelete = function(id) {
-    const item = this.items.findIndex(function(element) {
-      return element.id === id;
+    // const itemIndex = this.items.findIndex(function(element) {
+    //   return element.id === id;
+    // });
+    // this.items.splice(itemIndex, 1);
+    this.items = this.items.filter(element => {
+      return element.id !== id;
     });
-    this.items.splice(item, 1);
   };
 
   return {
