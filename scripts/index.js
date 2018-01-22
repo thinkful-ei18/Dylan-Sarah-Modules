@@ -6,7 +6,6 @@
 $(document).ready(function() {
   shoppingList.bindEventListeners();
   shoppingList.render();
-  console.log(store.findById(1));
 });
 
 
