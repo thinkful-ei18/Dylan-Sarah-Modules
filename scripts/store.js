@@ -39,12 +39,19 @@ const store = (function() {
     }
   };
 
+  const findAndDelete = function(id) {
+    const item = this.items.findIndex(this.findById(id));
+    this.items.splice(item, 1);
+  };
+
   return {
     items,
     hideCheckedItems,
     searchTerm,
     findById,
     addItem,
-    findAndToggleChecked
+    findAndToggleChecked,
+    findAndUpdateName,
+    findAndDelete
   };
 }() );
