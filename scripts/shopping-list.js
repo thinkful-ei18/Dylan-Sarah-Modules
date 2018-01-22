@@ -111,9 +111,9 @@ const shoppingList = (function(){
   //   item.name = itemName;
   // }
   
-  function toggleCheckedItemsFilter() {
-    store.hideCheckedItems = !store.hideCheckedItems;
-  }
+  // function toggleCheckedItemsFilter() {
+  //   store.hideCheckedItems = !store.hideCheckedItems;
+  // }
   
   function setSearchTerm(val) {
     store.searchTerm = val;
@@ -144,7 +144,7 @@ const shoppingList = (function(){
   
   function handleToggleFilterClick() {
     $('.js-filter-checked').click(() => {
-      toggleCheckedItemsFilter();
+      store.toggleCheckedFilter();
       render();
     });
   }

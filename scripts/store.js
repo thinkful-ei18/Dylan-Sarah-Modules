@@ -50,6 +50,10 @@ const store = (function() {
     });
   };
 
+  const toggleCheckedFilter = function() {
+    this.hideCheckedItems = !this.hideCheckedItems;
+  };
+
   return {
     items,
     hideCheckedItems,
@@ -58,6 +62,7 @@ const store = (function() {
     addItem,
     findAndToggleChecked,
     findAndUpdateName,
-    findAndDelete
+    findAndDelete,
+    toggleCheckedFilter
   };
 }() );
