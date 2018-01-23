@@ -2,7 +2,7 @@
 /* global Item, cuid */
 
 const store = (function() {
-  const   items = [
+  const items = [
     { id: cuid(), name: 'apples', checked: false },
     { id: cuid(), name: 'oranges', checked: false },
     { id: cuid(), name: 'milk', checked: true },
@@ -19,7 +19,7 @@ const store = (function() {
     try {
       Item.validateName(name);
       this.items.push(Item.create(name));
-    } catch (e){
+    } catch (e) {
       console.log(`Cannot add item: ${e.message}`);
     }
   };
@@ -27,15 +27,15 @@ const store = (function() {
   // maybe the return is wrong
   // test with and without 'this'
   const findAndToggleChecked = function(id) {
-    let toggled = this.findById(id).checked;
-    this.findById(id).checked = !toggled;
+    let item = this.findById(id);
+    item.checked = !item.checked;
   };
 
   const findAndUpdateName = function(id, newName) {
     try {
       Item.validateName(newName);
       this.findById(id).name = newName;
-    } catch (e){
+    } catch (e) {
       console.log(`Cannot update name: ${e.message}`);
     }
   };
@@ -70,4 +70,4 @@ const store = (function() {
     toggleCheckedFilter,
     setSearchTerm
   };
-}() );
+})();

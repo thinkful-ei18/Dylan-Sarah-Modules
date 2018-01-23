@@ -1,8 +1,9 @@
 'use strict';
 
-const Item = (function () {
+const Item = (function() {
   const validateName = function(name) {
-    if (name === undefined || name === '') throw TypeError('Name does not exist');
+    if (name === undefined || name === '')
+      throw TypeError('Name does not exist');
   };
 
   const create = function(name) {
@@ -16,5 +17,4 @@ const Item = (function () {
     validateName,
     create
   };
-}() );
-
+})();
